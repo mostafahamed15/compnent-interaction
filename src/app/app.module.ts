@@ -8,6 +8,8 @@ import {NameChildComponent} from './name-child.component';
 import {NameParentComponent} from './name-parent.component';
 import {VersionChildComponent} from './version-child.component';
 import {VersionParentComponent} from './version-parent.component';
+import {VoterComponent} from './voter.component';
+import {VoteTakerComponent} from './votetaker.component';
 
 let directives: any[] = [
   AppComponent,
@@ -16,7 +18,9 @@ let directives: any[] = [
   NameChildComponent,
   NameParentComponent,
   VersionChildComponent,
-  VersionParentComponent
+  VersionParentComponent,
+  VoterComponent,
+  VoteTakerComponent
 ]
 @NgModule({
   declarations: directives,

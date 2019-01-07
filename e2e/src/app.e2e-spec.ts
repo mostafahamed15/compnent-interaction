@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { element } from 'protractor';
+import { element, browser } from 'protractor';
 declare var by: any;
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -129,5 +129,24 @@ it('should process Disagree vote', function(){
     let voteLabel = element(by.tagName('app-vote-taker'))
        .element(by.tagName('h3')).getText();
     expect(voteLabel).toBe('Agree: 1, Disagree: 1');
+  });
+});
+
+//Test Parent interacts with child via local variable
+it('timer and parent seconds should match', function () {
+  let parent = element(by.tagName('app-countdown-parent-lv'));
+  let message = parent.element(by.tagName('app-countdown-timer')).getText();
+  browser.sleep(10); // give 'seconds' a chance to catchup with 'message'
+  let seconds = parent.element(by.className('seconds')).getText();
+  expect(message).toContain(seconds);
+});
+
+it('should stop the countdown', function () {
+  let parent = element(by.tagName('app-countdown-parent-lv'));
+  let stopButton = parent.all(by.tagName('button')).get(1);
+
+  stopButton.click().then(function() {
+    let message = parent.element(by.tagName('app-countdown-timer')).getText();
+    expect(message).toContain('Holding');
   });
 });

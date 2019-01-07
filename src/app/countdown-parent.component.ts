@@ -7,7 +7,7 @@ import { CountdownTimerComponent } from './countdown-timer.component';
     <h3>Countdown to liftoff (via local variable)</h3>
     <button (click) = "timer.start()">Start</button>
     <button (click) = "timer.stop()">Stop</button>
-    <div> {{timer.seconds}}</div>
+    <div class = "seconds"> {{timer.seconds}}</div>
     <app-countdown-timer #timer></app-countdown-timer>
     `
 })
